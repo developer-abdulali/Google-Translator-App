@@ -1,23 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import axios from "axios"; // Import axios using ES6 module syntax
+import "./App.css";
 
 function App() {
+  useEffect(() => {
+    axios
+      .get("https://libretranslate.de/languages", {
+        headers: { Accept: "application/json" },
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.error("Error fetching languages:", error);
+      });
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        From:
+        <select>
+          <option value="1">1</option>
+          <option value="2">2</option>
+        </select>
+        To:
+        <select>
+          <option value="1">1</option>
+          <option value="2">2</option>
+        </select>
+        <div>
+          <textarea name="" id="" cols="50" rows="8"></textarea>
+        </div>
+        <div>
+          <textarea name="" id="" cols="50" rows="8"></textarea>
+        </div>
+        <div>
+          <button>Translate</button>
+        </div>
+      </div>
     </div>
   );
 }
