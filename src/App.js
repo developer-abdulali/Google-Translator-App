@@ -119,6 +119,7 @@ function App() {
             Translate
           </button>
         </div>
+      <p className="text-center text-blue-600 pt-5">Copyright © Google Translator | Developer-Abdul Ali</p>
       </div>
     </div>
   );
